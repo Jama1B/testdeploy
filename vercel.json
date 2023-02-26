@@ -2,5 +2,5 @@
   "version": 1,
   "name": "food",
   "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "//api/food(.*)", "dest": "/server.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "/server.js" }]
 }
