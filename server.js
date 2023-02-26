@@ -16,20 +16,31 @@ app.use(express.json());
 
 // routes
 
-app.use('/api/food', FoodRoutes);
+app.get('/', (req, res) => {
+  res.send({ mass: 'hello world!' });
+});
+app.get('/api/v2', (req, res) => {
+  res.send({ mass: 'hello world !!!' });
+});
 
-//Connect to db
-const connect = mongoose
-  .connect(MONGOOSE)
-  .then(() => {
-    // Listening to request
-    app.listen(PORT, () => {
-      console.log(`listening to port 🈂️ ${PORT} and connect to db 🏀`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+app.listen(port, () => {
+  console.log(`azampayapp listening at http://localhost:${port}`);
+});
 
-if (connect) {
-}
+// app.use('/api/food', FoodRoutes);
+
+// //Connect to db
+// const connect = mongoose
+//   .connect(MONGOOSE)
+//   .then(() => {
+//     // Listening to request
+//     app.listen(PORT, () => {
+//       console.log(`listening to port 🈂️ ${PORT} and connect to db 🏀`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// if (connect) {
+// }
